@@ -24,7 +24,32 @@
       // alias: {
       //   '/.*/_sidebar.md': '/_sidebar.md'
       // },
-      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      formatUpdated: '{YY}/{MM}/{DD} {HH}:{mm}',
+      search: {
+        noData: {
+          '/de-de/': 'Keine Ergebnisse!',
+          '/zh-cn/': '没有结果!',
+          '/': 'No results!'
+        },
+        paths: 'auto',
+        placeholder: {
+          '/de-de/': 'Suche',
+          '/zh-cn/': '搜索',
+          '/': 'Search'
+        }
+      },
+      plugins: [
+        function(hook, vm) {
+          hook.beforeEach(function (html) {
+            var url = 'https://github.com/liuyueyi/quick-python-demo/edit/master/docs/' + vm.route.file
+            var editHtml = '[:memo: Edit Document](' + url + ')\n'
+            return html
+              + '\n----\n'
+              + '最近修改 {docsify-updated} '
+              + editHtml
+          })
+        }
+      ]
     }
   </script>
   <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
