@@ -41,8 +41,8 @@
       plugins: [
         function(hook, vm) {
           hook.beforeEach(function (html) {
-            var url = 'https://github.com/liuyueyi/quick-python-demo/edit/master/docs/' + vm.route.file
-            var editHtml = '[:memo: Edit Document](' + url + ')\n'
+            var url = 'https://github.com/liuyueyi/quick-python-demo/blob/master/docs/' + vm.route.file
+            var editHtml = '[:memo: 编辑](' + url + ')\n'
             return html
               + '\n----\n'
               + '最近修改 {docsify-updated} '
